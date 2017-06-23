@@ -102,7 +102,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       # provisioner: install box using puppet manifest
       node_config.vm.provision :puppet do |puppet|
-        puppet.module_path = [ "../../modules", "../../profiles" ]
+        puppet.module_path = "../../modules"
         puppet.manifests_path = "manifests"
         puppet.hiera_config_path = "hiera.yaml"
         #puppet.options = "--verbose --debug --parser=future"

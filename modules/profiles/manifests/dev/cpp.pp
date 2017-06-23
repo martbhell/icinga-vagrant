@@ -1,5 +1,8 @@
 
 class profiles::dev::cpp {
+
+  contain ::epel
+
   package { [
           'ccache',
           'gcc-c++',
@@ -7,6 +10,5 @@ class profiles::dev::cpp {
           'cmake'
     ]:
     ensure => present,
-    requires => Class['epel']
   }
 }

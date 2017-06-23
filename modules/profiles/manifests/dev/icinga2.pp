@@ -1,7 +1,8 @@
 
 class profiles::dev::icinga2 {
 
-  contain profiles::dev::cpp
+  contain ::epel
+  contain ::profiles::dev::cpp
 
   package { [
           'flex',
@@ -11,7 +12,6 @@ class profiles::dev::icinga2 {
           'mariadb-devel',
           'postgresql-devel'
     ]:
-    ensure => present,
-    requires => Class['epel']
+    ensure => present
   }
 }

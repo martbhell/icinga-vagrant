@@ -14,7 +14,7 @@ class profiles::base::common {
              'screen',
              'htop'
     ]:
-    ensure => present
+    ensure => present,
     require => Class['epel']
   }
 

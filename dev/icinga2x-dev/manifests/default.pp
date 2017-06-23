@@ -1,5 +1,6 @@
 
 include profiles::base::common
+include profiles::dev::rpm
 include profiles::dev::icinga2
 include profiles::webserver::apache
 

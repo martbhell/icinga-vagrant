@@ -6,6 +6,9 @@ OSTYPE="unknown"
 
 if [ -x /usr/bin/lsb_release ]; then
   OSTYPE=$(lsb_release -i -s)
+  if [ "$OSTYPE" == "CentOS" ]; then
+    OSTYPE="RedHat"
+  fi
   CODENAME=$(lsb_release -sc)
 elif [ -e /etc/redhat-release ]; then
   OSTYPE="RedHat"

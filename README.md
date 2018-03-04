@@ -188,6 +188,25 @@ $ vagrant plugin install vagrant-libvirt
 
 The libvirt provider uses the official CentOS base boxes.
 
+### Openstack <a id="requirements-providers-openstack"></a>
+
+Tested with an OpenStack Newton installation that uses Neutron for networking.
+
+```
+$ vagrant plugin install vagrant-openstack-provider
+```
+
+Login to your OpenStack and:
+ - fetch the openrc v3 file
+ - configure a security group called icinga with (ICMP to&from anywhere and TCP 22, 80, 443 from your workstation/clients should be enough)
+
+```
+$ source project-openrc.sh
+$ export OS_SSH_USER="cloud-user"
+$ export OS_FLAVOR=standard.medium
+$ export OS_IMAGE="CentOS-7"
+$ vagrant up --provider=openstack
+```
 
 # Installation <a id="installation"></a>
 

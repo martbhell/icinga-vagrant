@@ -22,7 +22,20 @@ nodes = {
       '80'   => '8085',
       '22'   => '2085',
       '8003' => '8085'
-    }
+    },
+    :os_override_ssh_username => "centos",
+    :os_meta_args_support     =>  true,
+    :os_openstack_auth_url    =>  "#{ENV['OS_AUTH_URL']}",
+    :os_username              =>  "#{ENV['OS_USERNAME']}",
+    :os_password              =>  "#{ENV['OS_PASSWORD']}",
+    :os_flavor                =>  "standard.medium",
+    :os_image                 =>  "CentOS-7",
+    :os_project_name          =>  "#{ENV['OS_PROJECT_NAME']}",
+    :os_networks              =>  [ "#{ENV['OS_PROJECT_NAME']}" ],
+    :os_floating_ip_pool      =>  "#{ENV['OS_INTERFACE']}",
+    :os_security_groups       =>  [ 'default', 'icinga' ],
+    :os_identity_api_version  =>  "#{ENV['OS_IDENTITY_API_VERSION']}",
+    :os_domain_name           =>  "#{ENV['OS_USER_DOMAIN_NAME']}",
   }
 }
 

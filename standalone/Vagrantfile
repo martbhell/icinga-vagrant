@@ -94,19 +94,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       # provider: openstack
       node_config.vm.provider :openstack do |os, override|
-        override.ssh.username = "#{ENV['OS_SSH_USER']}"
-        os.meta_args_support     = true
-        os.openstack_auth_url    = "#{ENV['OS_AUTH_URL']}"
-        os.username              = "#{ENV['OS_USERNAME']}"
-        os.password              = "#{ENV['OS_PASSWORD']}"
-        os.flavor                = "#{ENV['OS_FLAVOR']}"
-        os.image                 = "#{ENV['OS_IMAGE']}"
-        os.project_name          = "#{ENV['OS_PROJECT_NAME']}"
-        os.networks              = [ "#{ENV['OS_PROJECT_NAME']}" ]
-        os.floating_ip_pool      = "#{ENV['OS_INTERFACE']}"
-        os.security_groups       = [ 'default', 'icinga' ] # how to Vagrant escape
-        os.identity_api_version  = "#{ENV['OS_IDENTITY_API_VERSION']}"
-        os.domain_name           = "#{ENV['OS_USER_DOMAIN_NAME']}"
+        override.ssh.username = options[:os_override_ssh_username]
+        os.meta_args_support    = options[:os_meta_args_support]
+        os.openstack_auth_url   = options[:os_openstack_auth_url]
+        os.username             = options[:os_username]
+        os.password             = options[:os_password]
+        os.flavor               = options[:os_flavor]
+        os.image                = options[:os_image]
+        os.project_name         = options[:os_project_name]
+        os.networks             = options[:os_networks]
+        os.floating_ip_pool     = options[:os_floating_ip_pool]
+        os.security_groups      = options[:os_security_groups]
+        os.identity_api_version = options[:os_identity_api_version]
+        os.domain_name          = options[:os_domain_name]
         override.vm.provision "shell", inline: 'echo "For openstack provisioned hosts navigate to http://$1"', args: ['@@ssh_ip@@']
       end
 

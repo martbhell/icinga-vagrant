@@ -202,9 +202,8 @@ Login to your OpenStack and:
 
 ```
 $ source project-openrc.sh
-$ export OS_SSH_USER="cloud-user"
-$ export OS_FLAVOR=standard.medium
-$ export OS_IMAGE="CentOS-7"
+$ cp -v Vagrantfile.nodes Vagrantfile.local
+$ $EDITOR Vagrantfile.local # change flavor, image and ssh username if you need to
 $ vagrant up --provider=openstack
 ```
 
